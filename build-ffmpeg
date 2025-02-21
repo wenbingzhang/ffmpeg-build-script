@@ -237,7 +237,7 @@ usage() {
   echo "      --small                    Prioritize small size over speed and usability; don't build manpages"
   echo "      --full-static              Build a full static FFmpeg binary (eg. glibc, pthreads etc...) **only Linux**"
   echo "                                 Note: Because of the NSS (Name Service Switch), glibc does not recommend static links."
-  echo "      --macos-x86_64             macos cross-compile x86_64
+  echo "      --macos-x86_64             macos cross-compile x86_64"
   echo ""
 }
 
