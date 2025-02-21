@@ -35,7 +35,7 @@ jobs:
         run: |
           ./build-ffmpeg --cleanup
 
-  build-macos:
+  build-macos-x86-64:
     name: build in native macOS x86-64
     runs-on: macos-15
     steps:
