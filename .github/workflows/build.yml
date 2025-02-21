@@ -47,12 +47,20 @@ jobs:
           while sleep 300; do echo "=====[ $SECONDS seconds still running ]====="; done &
           SKIPINSTALL=yes VERBOSE=yes MACOSX_DEPLOYMENT_TARGET=10.15 ./build-ffmpeg --build --enable-gpl-and-non-free
           kill %1
+      - name: eee
+        run: |
+          tar czvf ./workspace_macos.tar.gz ./workspace
       - name: check shared library
         run: |
           otool -L ./workspace/bin/ffmpeg
       - name: test run ffmepg
         run: |
           ./workspace/bin/ffmpeg -buildconf
+      - name: Upload Asset
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace_macos.tar.gz
+          path: ./workspace_macos.tar.gz
       - name: clean up
         run: |
           ./build-ffmpeg --cleanup
