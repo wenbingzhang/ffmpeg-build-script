@@ -237,7 +237,6 @@ usage() {
   echo "      --small                    Prioritize small size over speed and usability; don't build manpages"
   echo "      --full-static              Build a full static FFmpeg binary (eg. glibc, pthreads etc...) **only Linux**"
   echo "                                 Note: Because of the NSS (Name Service Switch), glibc does not recommend static links."
-  echo "      --macos-x86_64             macos cross-compile x86_64"
   echo ""
 }
 
@@ -263,13 +262,6 @@ while (($# > 0)); do
       CONFIGURE_OPTIONS+=("--enable-nonfree")
       CONFIGURE_OPTIONS+=("--enable-gpl")
       NONFREE_AND_GPL=true
-    fi
-    if [[ "$1" == "--macos-x86_64" ]]; then
-      CONFIGURE_OPTIONS+=("--enable-cross-compile")
-      CONFIGURE_OPTIONS+=("--arch=x86_64")
-      CONFIGURE_OPTIONS+=("--target-os=darwin")
-      CFLAGS+=" -arch x86_64 -mmacosx-version-min=10.15"
-      LDFLAGS+=" -arch x86_64 -mmacosx-version-min=10.15 -Wl,-dead_strip -Wl,-rpath,@loader_path -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,@loader_path/Libraries -Wl,-rpath,@loader_path/../lib"
     fi
     if [[ "$1" == "--disable-lv2" ]]; then
       DISABLE_LV2=true
