@@ -37,7 +37,7 @@ jobs:
 
   build-macos-x86-64:
     name: build in native macOS x86-64
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
       - name: build ffmpeg
         run: |
           while sleep 300; do echo "=====[ $SECONDS seconds still running ]====="; done &
-          SKIPINSTALL=yes VERBOSE=yes MACOSX_DEPLOYMENT_TARGET=10.15 ./build-ffmpeg --build --enable-gpl-and-non-free --macos-x86_64
+          SKIPINSTALL=yes VERBOSE=yes MACOSX_DEPLOYMENT_TARGET=10.15 ./build-ffmpeg --build --enable-gpl-and-non-free
           kill %1
       - name: compressing
         run: |
