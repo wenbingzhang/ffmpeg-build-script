@@ -47,7 +47,7 @@ jobs:
           while sleep 300; do echo "=====[ $SECONDS seconds still running ]====="; done &
           SKIPINSTALL=yes VERBOSE=yes MACOSX_DEPLOYMENT_TARGET=10.15 ./build-ffmpeg --build --enable-gpl-and-non-free
           kill %1
-      - name: eee
+      - name: compressing
         run: |
           tar czvf ./workspace_macos.tar.gz ./workspace
       - name: check shared library
