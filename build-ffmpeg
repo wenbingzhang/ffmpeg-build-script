@@ -663,6 +663,7 @@ if $NONFREE_AND_GPL; then
     download "https://downloads.xvid.com/downloads/xvidcore-$CURRENT_PACKAGE_VERSION.tar.gz"
     cd build/generic || exit
     execute ./configure --prefix="${WORKSPACE}" --disable-shared --enable-static
+    execute rm -rf "=build"
     execute make -j $MJOBS
     execute make install
 
