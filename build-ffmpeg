@@ -433,7 +433,7 @@ fi
 if $NONFREE_AND_GPL; then
   if build "gettext" "0.22.5"; then
     download "https://ftpmirror.gnu.org/gettext/gettext-$CURRENT_PACKAGE_VERSION.tar.gz"
-    execute ./configure --prefix="${WORKSPACE}" --enable-static --disable-shared
+    execute ./configure --prefix="${WORKSPACE}" --enable-static --disable-shared --disable-java
     execute make -j $MJOBS
     execute make install
     build_done "gettext" $CURRENT_PACKAGE_VERSION
