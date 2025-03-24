@@ -664,6 +664,7 @@ if $NONFREE_AND_GPL; then
     cd build/generic || exit
     execute ./configure --prefix="${WORKSPACE}" --disable-shared --enable-static
     execute make -j $MJOBS
+    execute rm -rf "=build"
     execute make install
 
     if [[ -f ${WORKSPACE}/lib/libxvidcore.4.dylib ]]; then
